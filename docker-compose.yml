@@ -1,0 +1,16 @@
+services:
+  api:
+      build: api
+      env_file: .env
+      ports:
+        - 8000:8000
+
+  web:
+      build: app
+      ports:
+        - 3000:80
+        
+      depends_on:
+        - api
+
+   

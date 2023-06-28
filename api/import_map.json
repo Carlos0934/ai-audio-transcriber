@@ -1,0 +1,8 @@
+{
+    "imports": {
+        "evt" : "https://deno.land/x/evt@v2.4.22/mod.ts",
+        "hono" : "https://deno.land/x/hono@v3.2.6/mod.ts",
+        "assert" : "https://deno.land/std@0.192.0/testing/asserts.ts"
+    
+    }
+}

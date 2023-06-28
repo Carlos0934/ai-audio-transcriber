@@ -1,0 +1,54 @@
+---
+import Dropzone from "./Dropzone.astro";
+
+---
+
+<form  class="flex flex-col w-full justify-center items-center max-w-lg">
+    <Dropzone/>
+    
+    <button class="mt-4 px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 w-full">
+        Transcribe Audio
+    </button>
+</form>
+
+<script>
+     const form = document.querySelector('form')!
+
+    form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const file = new FormData(form).get('file') as File | undefined;
+    
+    if (!file || file.size === 0) {
+        alert('Please select a file');
+        return;
+    }
+    
+    fetch('http://localhost:8000/transcribe', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        },
+        body: file,
+
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+        const blob = new Blob([data], {type: 'text/plain'});
+        const fileName = `${file.name}-transcript.txt`;
+        const url = window.URL.createObjectURL(blob);
+
+        const a = document.createElement('a');
+
+        a.href = url;
+        a.download = fileName;
+        a.click();
+        a.remove();
+
+        form.reset();
+    })
+    .catch(error => {
+        console.error(error);
+    })
+})
+</script>

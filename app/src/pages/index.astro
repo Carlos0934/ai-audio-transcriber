@@ -1,0 +1,31 @@
+---
+import Form from '../components/Form.astro';
+import Layout from '../components/Layout.astro'
+---
+
+<Layout>
+    <main class="flex flex-col h-screen w-full justify-center items-center text-center mb-4">
+        <h1 class="mb-4 text-4xl font-bold text-gray-900">
+            Audio File Transcription 
+        </h1>
+        <p class ="mb-4 max-w-md">
+            This is a simple tool to transcribe audio files. It uses the <a class="text-blue-500"
+            href="https://openai.com/research/whisper">OpenAi</a> API to transcribe audio files.
+        </p>
+       
+        <Form/>
+
+        
+    </main>
+   
+
+</Layout>
+
+<script>
+
+    
+
+  
+   
+  
+</script>
