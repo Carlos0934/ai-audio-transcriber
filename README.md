@@ -2,6 +2,8 @@
 
 AI Audio Transcriber is a project that utilizes Deno as an API and Astro for the frontend. It enables the transcription of audio to text using the OpenAI API. The project incorporates custom implementations of a task queue for audio processing based on events and an in-memory cache with a limited lifespan that utilizes the hash of audio files.
 
+![image](https://github.com/Carlos0934/ai-audio-transcriber/assets/46497770/80b3544a-bb6f-4919-aa31-70a905a1ffdf)
+
 ## Setup
 
 To set up the project, follow these steps:
